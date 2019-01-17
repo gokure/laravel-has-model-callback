@@ -1,0 +1,24 @@
+{
+    "name": "gokure/laravel-has-model-callback",
+    "description": "Extends for laravel model",
+    "keywords": [
+        "laravel",
+        "callback",
+        "events"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Gokure\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gang Wu",
+            "email": "gokure@gmail.com"
+        }
+    ]
+}
