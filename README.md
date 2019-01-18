@@ -13,3 +13,40 @@ Perform sequence will stopped when before* events return `false`.
 | afterSave()    | afterSave()       |                   | afterUpdate()     |
 |                |                   |                   | afterSave()       |
 |                |                   |                   | afterRestore()    |
+
+## Installation
+
+Install the ``gokure/laravel-has-model-callback`` package:
+
+```bash
+$ composer require gokure/laravel-has-model-callback
+```
+
+Change your models:
+
+### Before
+
+```php
+// app/YourModel.php
+
+protected static function boot()
+{
+    parent::boot();
+    static::saving(function ($model) {
+        $model->full_name = $model->first_name . ' ' . $model->last_name;
+    });
+}
+```
+
+### After
+
+```php
+// app/YourModel.php
+
+use Gokure\Eloquent\Concerns\HasModelCallback::class;
+
+protected function beforeSave()
+{
+    $this->full_name = $this->first_name . ' ' . $this->last_name;
+}
+```
