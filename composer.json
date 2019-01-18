@@ -11,6 +11,9 @@
             "Gokure\\": "src/"
         }
     },
+    "require": {
+        "php": ">=5.3.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "~5.7"
     },
