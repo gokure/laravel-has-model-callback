@@ -1,30 +1,10 @@
 # Laravel Has Model Callbacks
 
-Callbacks of model events, trigger around with create/update/delete or restore.
+The `gokure/laravel-has-model-callback` package provides easy to use class methods to hook the model events in your app. Methods are depends on `Illuminate\Database\Eloquent\Concerns\HasEvents` trait.
 
-Perform sequence will stopped when before* events return `false`.
+A demo of how you can use it:
 
-| For creates    | For updates       | For deletes       | For restores      |
-|----------------|-------------------|-------------------|-------------------|
-| beforeSave()   | beforeSave()      | beforeDelete()    | beforeRestore()   |
-| beforeCreate() | beforeUpdate()    | *delete()         | beforeSave()      |
-| *insert()      | *update()         | afterDelete()     | beforeUpdate()    |
-| afterCreate()  | afterUpdate()     |                   | *update()         |
-| afterSave()    | afterSave()       |                   | afterUpdate()     |
-|                |                   |                   | afterSave()       |
-|                |                   |                   | afterRestore()    |
-
-## Installation
-
-Install the ``gokure/laravel-has-model-callback`` package:
-
-```bash
-$ composer require gokure/laravel-has-model-callback
-```
-
-Change your models:
-
-### Before
+before
 
 ```php
 // app/YourModel.php
@@ -38,7 +18,7 @@ protected static function boot()
 }
 ```
 
-### After
+after
 
 ```php
 // app/YourModel.php
@@ -50,3 +30,27 @@ protected function beforeSave()
     $this->full_name = $this->first_name . ' ' . $this->last_name;
 }
 ```
+
+The following methods are supports:
+
+| For creates    | For updates       | For deletes       | For restores      |
+|----------------|-------------------|-------------------|-------------------|
+| beforeSave()   | beforeSave()      | beforeDelete()    | beforeRestore()   |
+| beforeCreate() | beforeUpdate()    | *delete()         | beforeSave()      |
+| *insert()      | *update()         | afterDelete()     | beforeUpdate()    |
+| afterCreate()  | afterUpdate()     |                   | *update()         |
+| afterSave()    | afterSave()       |                   | afterUpdate()     |
+|                |                   |                   | afterSave()       |
+|                |                   |                   | afterRestore()    |
+
+Perform sequence will stopped when `before*` methods return `false`.
+
+## Installation
+
+Install the `gokure/laravel-has-model-callback` package:
+
+```bash
+$ composer require gokure/laravel-has-model-callback
+```
+
+Add `use Gokure\Eloquent\Concerns\HasModelCallback::class;` to your model and define methods if you want.
