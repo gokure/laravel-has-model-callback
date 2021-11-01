@@ -23,7 +23,7 @@ after
 ```php
 // app/YourModel.php
 
-use Gokure\Eloquent\Concerns\HasModelCallback::class;
+use Gokure\Eloquent\Concerns\HasModelCallbacks::class;
 
 protected function beforeSave()
 {
@@ -53,4 +53,4 @@ Install the `gokure/laravel-has-model-callback` package:
 $ composer require gokure/laravel-has-model-callback
 ```
 
-Add `use Gokure\Eloquent\Concerns\HasModelCallback::class;` to your model and define methods if you want.
+Add `use Gokure\Eloquent\Concerns\HasModelCallbacks::class;` to your model and define methods if you want.

@@ -2,7 +2,7 @@
 
 namespace Gokure\Eloquent\Concerns;
 
-trait HasModelCallback
+trait HasModelCallbacks
 {
     /**
      * Register the bootable traits on the model
